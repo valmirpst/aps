@@ -1,19 +1,55 @@
+import { produtos } from '../data/produtos';
 import ProdutoEstoque, { ProdutoEstoqueType } from '../entities/ProdutoEstoque';
 
 class ProdutoEstoqueDao {
-  selectById() {
-    return;
+  selectAll() {
+    return produtos;
   }
 
-  selectByCategoria() {
-    return;
+  selectById(id: ProdutoEstoqueType['id']) {
+    return produtos.filter(produto => produto.id === id);
   }
 
-  create(payload: ProdutoEstoqueType) {
+  selectByCategoria(categoria: ProdutoEstoqueType['categoria']) {
+    return produtos.filter(produto => produto.categoria === categoria);
+  }
+
+  insert(payload: ProdutoEstoqueType) {
     const { id, categoria, nome, quantidade } = payload;
-    const produto = new ProdutoEstoque(id, categoria, nome, quantidade);
+    const novoProduto = new ProdutoEstoque(id, categoria, nome, quantidade);
 
-    return;
+    try {
+      const existe = produtos.find(produto => {
+        if (produto.id === novoProduto.id) {
+          produto.quantidade += novoProduto.quantidade;
+          return true;
+        }
+        return false;
+      });
+      if (!existe) produtos.push(novoProduto);
+
+      return 'Produto inserido com sucesso!';
+    } catch (err) {
+      console.log(err);
+      return 'Erro ao inserir produto.';
+    }
+  }
+
+  delete(id: ProdutoEstoqueType['id']) {
+    try {
+      const index = produtos.findIndex(produto => produto.id === id);
+      if (index !== -1) {
+        produtos.splice(index, 1);
+      } else {
+        throw new Error('Produto nao encontrado.');
+      }
+    } catch (err) {
+      console.log(err);
+      if (err.message) {
+        return err.message;
+      }
+      return 'Erro ao deletar produto.';
+    }
   }
 
   update(produtoId: ProdutoEstoqueType['id'], produtoAtualizado: ProdutoEstoqueType) {
@@ -24,76 +60,4 @@ class ProdutoEstoqueDao {
     // `
     return;
   }
-
-  delete(produtoId: ProdutoEstoqueType['id']) {
-    return;
-  }
 }
-// def __cursorToListOfProduto(self, cursor):
-//   row = cursor.fetchone()
-//   result = []
-//   while row is not None:
-//     result.push(self.__rowToProduto(row))
-//     row = cursor.fetchone()
-//   return result
-
-// def __rowToProduto(self, row):
-//     prod = Produto()
-//     prod.nome(row['nome'])
-//     prod.estoque(row['quantidade'])
-//     prod.validade(row['validade'])
-//     prod.descricao(row['descricao'])
-//     prod.precoUltimaCompra(row['precoUltimaCompra'])
-//     prod.dataFabricacao(row['dataFabricacao'])
-//     return prod
-
-// def create(self):
-//     produto = Produto()
-//     return produto
-
-// def retrieve(self, idProduto):
-//     return None
-
-// def update(self, produto):
-//   connection = DBController().obterConnection();
-//   cursor = connection.cursor()
-
-//   if not hasattr(produto, 'id'):
-//     cursor.execute('INSERT INTO Produto (nome, quantidade, validade, precoUltimaCompra, dataFabricacao) VALUES(?, ?, ?, ?, ?, ?)',
-//       nome, quantidade, validade, descricao, precoUltimaCompra, dataFabricacao)
-//   else:
-//     cursor.execute('UPDATE Produto SET nome=?, quantidade=?, validade=?, precoUltimaCompra=?, dataFabricacao=? WHERE id = ?',
-//       nome, quantidade, validade, descricao, precoUltimaCompra, dataFabricacao, id)
-
-//   cursor.close()
-//   connection.close()
-//   return True
-
-// def delete(self, produto):
-//     return None
-
-// def listByNome(self, nome):
-//   connection = DBController().obterConnection();
-//   cursor = connection.cursor()
-
-//   cursor.execute('SELECT * FROM Produto WHERE nome = ?', nome)
-
-//   result = self.__cursorToListOfProduto(cursor)
-
-//   cursor.close()
-//   connection.close()
-
-//   return result
-
-// def listByEan13(self, ean13):
-//   connection = DBController().obterConnection();
-//   cursor = connection.cursor()
-
-//   cursor.execute('SELECT * FROM Produto WHERE ean13 = ?', ean13)
-
-//   result = self.__cursorToListOfProduto(cursor)
-
-//   cursor.close()
-//   connection.close()
-
-//   return result
