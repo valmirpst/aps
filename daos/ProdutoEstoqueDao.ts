@@ -1,4 +1,5 @@
-import ProdutoEstoque, { ProdutoEstoqueType } from '../entities/ProdutoEstoque';
+import { ProdutoEstoqueType } from '../@types/ProdutoEstoque';
+import ProdutoEstoque from '../entities/ProdutoEstoque';
 
 class ProdutoEstoqueDao {
   selectById() {
@@ -16,7 +17,10 @@ class ProdutoEstoqueDao {
     return;
   }
 
-  update(produtoId: ProdutoEstoqueType['id'], produtoAtualizado: ProdutoEstoqueType) {
+  update(
+    produtoId: ProdutoEstoqueType['id'],
+    produtoAtualizado: ProdutoEstoqueType
+  ) {
     // sql`
     // UPDATE ProdutoEstoque
     // SET produtoAtualizado
