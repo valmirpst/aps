@@ -19,4 +19,3 @@ class PedidoManager {
 
   buscarPedidos(usuario: string) {}
 }
-  
