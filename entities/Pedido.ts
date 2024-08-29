@@ -1,19 +1,19 @@
-import { ComboAcai } from "./ComboAcai";
+import { PedidoType } from '../@types/PeditoType';
 
 class Pedido {
-  data: Date;
-  endereco: string;
-  formaPagamento: string;
-  combos: ComboAcai[];
-  extras: string[];
+  dataEmissao: PedidoType['dataEmissao'];
+  endereco: PedidoType['endereco'];
+  formaPagamento: PedidoType['formaPagamento'];
+  combos: PedidoType['combosAcai'];
+  extras: PedidoType['extras'];
   constructor(
-    data: Date,
-    endereco: string,
-    formaPagamento: string,
-    combos: ComboAcai[],
-    extras: string[]
+    dataEmissao: PedidoType['dataEmissao'],
+    endereco: PedidoType['endereco'],
+    formaPagamento: PedidoType['formaPagamento'],
+    combos: PedidoType['combosAcai'],
+    extras: PedidoType['extras']
   ) {
-    this.data = data;
+    this.dataEmissao = dataEmissao;
     this.endereco = endereco;
     this.formaPagamento = formaPagamento;
     this.combos = combos;

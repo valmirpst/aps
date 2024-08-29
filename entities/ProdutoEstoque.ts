@@ -1,9 +1,4 @@
-export type ProdutoEstoqueType = {
-  id: number;
-  categoria: Categoria;
-  nome: string;
-  quantidade: number;
-};
+import { ProdutoEstoqueType } from '../@types/ProdutoEstoque';
 
 class Categoria {
   comestivel: boolean;

@@ -1,8 +1,4 @@
-export type ProdutoType = {
-  tamanho: string;
-  sabor: string;
-  validade: Date;
-};
+import { ProdutoType } from '../@types/PedutoType';
 
 class Produto {
   tamanho: ProdutoType['tamanho'];

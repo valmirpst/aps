@@ -1,4 +1,5 @@
-import { ComboAcai, ComboAcaiType } from "../entities/ComboAcai";
+import { ComboAcaiType } from '../@types/ComboAcaiType';
+import { ComboAcai } from '../entities/ComboAcai';
 
 class ComboAcaiDao {
   create(payload: ComboAcaiType) {
