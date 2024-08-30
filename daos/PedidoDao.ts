@@ -3,7 +3,7 @@ import { ReturnDataType } from '../@types/globalType';
 import { pedidoList } from '../mock';
 
 type ReturnPedidoType = ReturnDataType<PedidoType>;
-class ProdutoDao {
+export class PedidoDao {
   create(pedido: PedidoType): ReturnPedidoType {
     // Fazer validação se o produto é válido
     pedidoList.push(...pedidoList);

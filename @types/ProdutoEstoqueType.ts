@@ -3,4 +3,5 @@ export type ProdutoEstoqueType = {
   nome: string;
   tamanho: string;
   quantidade: number;
+  validade: Date;
 };

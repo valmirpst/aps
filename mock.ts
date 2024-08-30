@@ -1,28 +1,6 @@
 import { ComboAcaiType } from './@types/ComboAcaiType';
 import { PedidoType } from './@types/PedidoType';
 import { ProdutoEstoqueType } from './@types/ProdutoEstoqueType';
-import { ProdutoType } from './@types/ProdutoType';
-
-export const produtosList: ProdutoType[] = [
-  {
-    id: '1',
-    tamanho: '500ml',
-    sabor: 'Açaí com Banana',
-    validade: new Date(2024, 10, 5), // 5 de Novembro de 2024
-  },
-  {
-    id: '2',
-    tamanho: '300ml',
-    sabor: 'Açaí com Morango',
-    validade: new Date(2024, 8, 20), // 20 de Setembro de 2024
-  },
-  {
-    id: '3',
-    tamanho: '700ml',
-    sabor: 'Açaí com Granola',
-    validade: new Date(2024, 11, 15), // 15 de Dezembro de 2024
-  },
-];
 
 export const comboAcaiList: ComboAcaiType[] = [
   {
@@ -67,29 +45,33 @@ export const pedidoList: PedidoType[] = [
   },
 ];
 
-export const ProdutoEstoqueList: ProdutoEstoqueType[] = [
+export const produtosEstoqueList: ProdutoEstoqueType[] = [
   {
     id: '1',
     nome: 'Açaí Original',
     tamanho: '20l',
     quantidade: 50,
+    validade: new Date(2024, 10, 5),
   },
   {
     id: '2',
     nome: 'Granola',
     tamanho: '1kg',
     quantidade: 30,
+    validade: new Date(2024, 8, 20),
   },
   {
     id: '3',
     nome: 'Leite Condensado',
     tamanho: '395g',
     quantidade: 20,
+    validade: new Date(2024, 11, 15),
   },
   {
     id: '4',
     nome: 'Leite em pó',
     tamanho: '380g',
     quantidade: 32,
+    validade: new Date(2024, 12, 25),
   },
 ];

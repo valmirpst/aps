@@ -3,7 +3,7 @@ import { ReturnDataType } from '../@types/globalType';
 import { comboAcaiList } from '../mock';
 
 type ReturnComboAcaiType = ReturnDataType<ComboAcaiType>;
-class ProdutoDao {
+export class ComboAcaiDao {
   create(comboAcai: ComboAcaiType): ReturnComboAcaiType {
     // Fazer validação se o produto é válido
     comboAcaiList.push(...comboAcaiList);
