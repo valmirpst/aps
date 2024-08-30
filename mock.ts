@@ -1,3 +1,4 @@
+import { ClienteType } from './@types/ClienteType';
 import { ComboAcaiType } from './@types/ComboAcaiType';
 import { PedidoType } from './@types/PedidoType';
 import { ProdutoEstoqueType } from './@types/ProdutoEstoqueType';
@@ -34,6 +35,7 @@ export const pedidoList: PedidoType[] = [
     formaPagamento: 'Cartão de Crédito',
     combosAcai: [comboAcaiList[0]],
     extras: ['Mel', 'Granola'],
+    avaliacoes: [''],
   },
   {
     id: '2',
@@ -42,6 +44,7 @@ export const pedidoList: PedidoType[] = [
     formaPagamento: 'Pix',
     combosAcai: [comboAcaiList[2]],
     extras: ['Paçoca'],
+    avaliacoes: [''],
   },
 ];
 
@@ -73,5 +76,15 @@ export const produtosEstoqueList: ProdutoEstoqueType[] = [
     tamanho: '380g',
     quantidade: 32,
     validade: new Date(2024, 12, 25),
+  },
+];
+
+export const clientesList: ClienteType[] = [
+  {
+    cpf: '000.000.000-00',
+    nome: 'Diego Silva',
+    telefone: '4499999-9999',
+    cidade: 'Paranavaí',
+    endereco: 'Rua das Graças, 1234',
   },
 ];
