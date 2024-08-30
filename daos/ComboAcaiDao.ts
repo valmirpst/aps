@@ -1,5 +1,5 @@
 import { ComboAcaiType } from '../@types/ComboAcaiType';
-import { ReturnDataType } from '../@types/globalType';
+import { ReturnDataType } from '../@types/GlobalType';
 import { comboAcaiList } from '../mock';
 
 type ReturnComboAcaiType = ReturnDataType<ComboAcaiType>;

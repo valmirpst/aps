@@ -7,4 +7,5 @@ export type PedidoType = {
   formaPagamento: string;
   combosAcai: ComboAcaiType[];
   extras: string[];
+  avaliacoes: string[];
 };
