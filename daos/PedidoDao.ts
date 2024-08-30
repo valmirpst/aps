@@ -1,5 +1,5 @@
 import { PedidoType } from '../@types/PedidoType';
-import { ReturnDataType } from '../@types/globalType';
+import { ReturnDataType } from '../@types/GlobalType';
 import { pedidoList } from '../mock';
 
 type ReturnPedidoType = ReturnDataType<PedidoType>;
