@@ -1,8 +1,8 @@
-import { PedidoType } from '../@types/PedidoType';
 import { ReturnDataType } from '../@types/GlobalType';
+import { PedidoType } from '../@types/PedidoType';
 import { pedidoList } from '../mock';
 
-type ReturnPedidoType = ReturnDataType<PedidoType>;
+export type ReturnPedidoType = ReturnDataType<PedidoType>;
 export class PedidoDao {
   create(pedido: PedidoType): ReturnPedidoType {
     // Fazer validação se o produto é válido

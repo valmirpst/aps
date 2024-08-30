@@ -1,21 +1,33 @@
-type AcaiType = {
-  nome: string;
-  quantidade: number;
-  adicionais: string[];
-};
+import { PedidoType } from '../@types/PedidoType';
+import { PedidoDao, ReturnPedidoType } from '../daos/PedidoDao';
 
-type EnderecoType = {
-  rua: string;
-  bairro: string;
-  numero: string;
-};
+export class PedidoManager {
+  pedidoDao: PedidoDao;
 
-class PedidoManager {
-  confirmarPedido(acais: AcaiType[], endereco: EnderecoType) {}
+  constructor() {
+    this.pedidoDao = new PedidoDao();
+  }
 
-  cancelarPedido(pedidoId: string) {}
+  confirmarPedido(pedido: PedidoType): ReturnPedidoType {
+    return this.pedidoDao.create(pedido);
+  }
 
-  avaliarPedido(pedidoId: string, mensagem: string) {}
+  cancelarPedido(pedidoId: string): ReturnPedidoType {
+    return this.pedidoDao.delete(pedidoId);
+  }
 
-  buscarPedidos(usuario: string) {}
+  avaliarPedido(pedidoId: string, mensagem: string): ReturnPedidoType {
+    const pedidoAvaliado = this.pedidoDao.retrieve(pedidoId);
+
+    if (pedidoAvaliado.data) {
+      pedidoAvaliado.data.avaliacoes.push(mensagem);
+      return this.pedidoDao.update(pedidoId, pedidoAvaliado.data);
+    }
+
+    return pedidoAvaliado;
+  }
+
+  buscarPedidos(usuarioId: string): ReturnPedidoType {
+    return this.pedidoDao.retrieve(usuarioId);
+  }
 }
