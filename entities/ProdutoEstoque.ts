@@ -1,4 +1,4 @@
-import { ProdutoEstoqueType } from '../@types/ProdutoEstoque';
+import { ProdutoEstoqueType } from '../@types/ProdutoEstoqueType';
 
 class Categoria {
   comestivel: boolean;
@@ -10,19 +10,19 @@ class Categoria {
 
 export default class ProdutoEstoque {
   id: ProdutoEstoqueType['id'];
-  categoria: ProdutoEstoqueType['categoria']; // Acai
   nome: ProdutoEstoqueType['nome']; // Balde Acai 12kg
+  tamanho: ProdutoEstoqueType['tamanho']; // Acai
   quantidade: ProdutoEstoqueType['quantidade']; // 5
 
   constructor(
     id: ProdutoEstoqueType['id'],
-    categoria: ProdutoEstoqueType['categoria'],
     nome: ProdutoEstoqueType['nome'],
+    tamanho: ProdutoEstoqueType['tamanho'],
     quantidade: ProdutoEstoqueType['quantidade']
   ) {
     this.id = id;
-    this.categoria = categoria;
     this.nome = nome;
+    this.tamanho = tamanho;
     this.quantidade = quantidade;
   }
 }

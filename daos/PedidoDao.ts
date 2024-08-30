@@ -1,81 +1,66 @@
-class PedidoDao {
-  create() {}
+import { PedidoType } from '../@types/PedidoType';
+import { ReturnDataType } from '../@types/globalType';
+import { pedidoList } from '../mock';
 
-  getPedidoById() {}
-  
-  update() {}
+type ReturnPedidoType = ReturnDataType<PedidoType>;
+class ProdutoDao {
+  create(pedido: PedidoType): ReturnPedidoType {
+    // Fazer validação se o produto é válido
+    pedidoList.push(...pedidoList);
+    return {
+      ok: true,
+      error: null,
+      data: pedido,
+    };
+  }
 
-  delete() {}
+  update(id: string, pedido: PedidoType): ReturnPedidoType {
+    const pedidoIndex = pedidoList.findIndex((item) => (item.id = id));
+    if (pedidoIndex !== -1) {
+      pedidoList[pedidoIndex] = pedido;
+      return {
+        ok: true,
+        error: null,
+        data: pedido,
+      };
+    }
+    return {
+      ok: false,
+      error: 'O ID passado não corresponde a nenhum produto.',
+      data: null,
+    };
+  }
+
+  retrieve(id: string): ReturnPedidoType {
+    const pedidoIndex = pedidoList.findIndex((item) => (item.id = id));
+    if (pedidoIndex !== -1) {
+      return {
+        ok: true,
+        error: null,
+        data: pedidoList[pedidoIndex],
+      };
+    }
+    return {
+      ok: false,
+      error: 'O ID passado não corresponde a nenhum produto.',
+      data: null,
+    };
+  }
+
+  delete(id: string): ReturnPedidoType {
+    const produtoIndex = pedidoList.findIndex((item) => (item.id = id));
+    if (produtoIndex !== -1) {
+      const pedidoRemoved = pedidoList.splice(produtoIndex, 1)[0];
+      return {
+        ok: true,
+        error: null,
+        data: pedidoRemoved,
+      };
+    }
+    return {
+      ok: false,
+      error: 'O ID passado não corresponde a nenhum produto.',
+      data: null,
+    };
+  }
 }
-
-// from daos.DBController import DBController
-
-// class ProdutoDao:
-//     def __cursorToListOfProduto(self, cursor):
-//       row = cursor.fetchone()
-//       result = []
-//       while row is not None:
-//         result.push(self.__rowToProduto(row))
-//         row = cursor.fetchone()
-//       return result
-
-//     def __rowToProduto(self, row):
-//         prod = Produto()
-//         prod.nome(row['nome'])
-//         prod.estoque(row['quantidade'])
-//         prod.validade(row['validade'])
-//         prod.descricao(row['descricao'])
-//         prod.precoUltimaCompra(row['precoUltimaCompra'])
-//         prod.dataFabricacao(row['dataFabricacao'])
-//         return prod
-
-//     def create(self):
-//         produto = Produto()
-//         return produto
-
-//     def retrieve(self, idProduto):
-//         return None
-
-//     def update(self, produto):
-//       connection = DBController().obterConnection();
-//       cursor = connection.cursor()
-
-//       if not hasattr(produto, 'id'):
-//         cursor.execute('INSERT INTO Produto (nome, quantidade, validade, precoUltimaCompra, dataFabricacao) VALUES(?, ?, ?, ?, ?, ?)',
-//           nome, quantidade, validade, descricao, precoUltimaCompra, dataFabricacao)
-//       else:
-//         cursor.execute('UPDATE Produto SET nome=?, quantidade=?, validade=?, precoUltimaCompra=?, dataFabricacao=? WHERE id = ?',
-//           nome, quantidade, validade, descricao, precoUltimaCompra, dataFabricacao, id)
-
-//       cursor.close()
-//       connection.close()
-//       return True
-
-//     def delete(self, produto):
-//         return None
-
-//     def listByNome(self, nome):
-//       connection = DBController().obterConnection();
-//       cursor = connection.cursor()
-
-//       cursor.execute('SELECT * FROM Produto WHERE nome = ?', nome)
-
-//       result = self.__cursorToListOfProduto(cursor)
-
-//       cursor.close()
-//       connection.close()
-
-//       return result
-
-//     def listByEan13(self, ean13):
-//       connection = DBController().obterConnection();
-//       cursor = connection.cursor()
-
-//       cursor.execute('SELECT * FROM Produto WHERE ean13 = ?', ean13)
-
-//       result = self.__cursorToListOfProduto(cursor)
-
-//       cursor.close()
-//       connection.close()
-
-//       return result

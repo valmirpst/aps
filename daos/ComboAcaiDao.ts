@@ -1,11 +1,66 @@
 import { ComboAcaiType } from '../@types/ComboAcaiType';
-import { ComboAcai } from '../entities/ComboAcai';
+import { ReturnDataType } from '../@types/globalType';
+import { comboAcaiList } from '../mock';
 
-class ComboAcaiDao {
-  create(payload: ComboAcaiType) {
-    const { nome, preco, tamanhoMl, itens } = payload;
-    const comboAcai = new ComboAcai(nome, preco, tamanhoMl, itens);
+type ReturnComboAcaiType = ReturnDataType<ComboAcaiType>;
+class ProdutoDao {
+  create(comboAcai: ComboAcaiType): ReturnComboAcaiType {
+    // Fazer validação se o produto é válido
+    comboAcaiList.push(...comboAcaiList);
+    return {
+      ok: true,
+      error: null,
+      data: comboAcai,
+    };
   }
 
-  update(id: string, comboAcai: ComboAcaiType) {}
+  update(id: string, comboAcai: ComboAcaiType): ReturnComboAcaiType {
+    const comboAcaiIndex = comboAcaiList.findIndex((item) => (item.id = id));
+    if (comboAcaiIndex !== -1) {
+      comboAcaiList[comboAcaiIndex] = comboAcai;
+      return {
+        ok: true,
+        error: null,
+        data: comboAcai,
+      };
+    }
+    return {
+      ok: false,
+      error: 'O ID passado não corresponde a nenhum produto.',
+      data: null,
+    };
+  }
+
+  retrieve(id: string): ReturnComboAcaiType {
+    const comboAcaiIndex = comboAcaiList.findIndex((item) => (item.id = id));
+    if (comboAcaiIndex !== -1) {
+      return {
+        ok: true,
+        error: null,
+        data: comboAcaiList[comboAcaiIndex],
+      };
+    }
+    return {
+      ok: false,
+      error: 'O ID passado não corresponde a nenhum produto.',
+      data: null,
+    };
+  }
+
+  delete(id: string): ReturnComboAcaiType {
+    const produtoIndex = comboAcaiList.findIndex((item) => (item.id = id));
+    if (produtoIndex !== -1) {
+      const comboAcaiRemoved = comboAcaiList.splice(produtoIndex, 1)[0];
+      return {
+        ok: true,
+        error: null,
+        data: comboAcaiRemoved,
+      };
+    }
+    return {
+      ok: false,
+      error: 'O ID passado não corresponde a nenhum produto.',
+      data: null,
+    };
+  }
 }

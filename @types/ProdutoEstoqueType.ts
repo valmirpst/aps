@@ -1,6 +1,6 @@
 export type ProdutoEstoqueType = {
-  id: number;
-  categoria: any; // verificar depois
+  id: string;
   nome: string;
+  tamanho: string;
   quantidade: number;
 };

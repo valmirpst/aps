@@ -4,16 +4,16 @@ export class ComboAcai {
   nome: ComboAcaiType['nome'];
   preco: ComboAcaiType['preco'];
   tamanhoMl: ComboAcaiType['tamanhoMl'];
-  itens: ComboAcaiType['itens'];
+  adicionais: ComboAcaiType['adicionais'];
   constructor(
     nome: ComboAcaiType['nome'],
     preco: ComboAcaiType['preco'],
     tamanhoMl: ComboAcaiType['tamanhoMl'],
-    itens: ComboAcaiType['itens']
+    adicionais: ComboAcaiType['adicionais']
   ) {
     this.nome = nome;
     this.preco = preco;
     this.tamanhoMl = tamanhoMl;
-    this.itens = itens;
+    this.adicionais = adicionais;
   }
 }

@@ -1,4 +1,4 @@
-import { PedidoType } from '../@types/PeditoType';
+import { PedidoType } from '../@types/PedidoType';
 
 class Pedido {
   dataEmissao: PedidoType['dataEmissao'];
