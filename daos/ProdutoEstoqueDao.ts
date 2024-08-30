@@ -1,4 +1,4 @@
-import { ReturnDataType } from '../@types/globalType';
+import { ReturnDataType } from '../@types/GlobalType';
 import { ProdutoEstoqueType } from '../@types/ProdutoEstoqueType';
 import { produtosEstoqueList } from '../mock';
 
