@@ -1,6 +1,6 @@
 import { EntregaType } from '../@types/EntregaType';
 
-class Entraga {
+class Entrega {
   cpfEntregador: EntregaType['cpfEntregador'];
   combosAcai: EntregaType['combosAcai'];
   endereco: EntregaType['endereco'];
