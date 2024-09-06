@@ -34,6 +34,7 @@ export const pedidoList: PedidoType[] = [
     formaPagamento: 'Cartão de Crédito',
     combosAcai: [comboAcaiList[0]],
     extras: ['Mel', 'Granola'],
+    avaliacoes: [],
   },
   {
     id: '2',
@@ -42,6 +43,7 @@ export const pedidoList: PedidoType[] = [
     formaPagamento: 'Pix',
     combosAcai: [comboAcaiList[2]],
     extras: ['Paçoca'],
+    avaliacoes: [],
   },
 ];
 
