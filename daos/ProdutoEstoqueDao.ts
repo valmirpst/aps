@@ -3,7 +3,7 @@ import { ProdutoEstoqueType } from '../@types/ProdutoEstoqueType';
 import { produtosEstoqueList } from '../mock';
 
 type ReturnProdutoEstoqueType = ReturnDataType<ProdutoEstoqueType>;
-export class ProdutoDao {
+export class ProdutoEstoqueDao {
   create(produto: ProdutoEstoqueType): ReturnProdutoEstoqueType {
     // Fazer validação se o produto é válido
     produtosEstoqueList.push(...produtosEstoqueList);
