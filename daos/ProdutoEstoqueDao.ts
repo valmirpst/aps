@@ -4,7 +4,7 @@ import { ProdutoEstoqueSchema } from '../dvos/ProdutoEstoqueDvo';
 import { produtosEstoqueList } from '../mock';
 
 type ReturnProdutoEstoqueType = ReturnDataType<ProdutoEstoqueType>;
-export class ProdutoDao {
+export class ProdutoEstoqueDao {
   create(produto: ProdutoEstoqueType): ReturnProdutoEstoqueType {
     const validation = ProdutoEstoqueSchema.safeParse(produto);
 

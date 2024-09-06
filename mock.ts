@@ -1,4 +1,7 @@
+import { ClienteType } from './@types/ClienteType';
 import { ComboAcaiType } from './@types/ComboAcaiType';
+import { EntregaType } from './@types/EntregaType';
+import { ItemPedidoType } from './@types/ItemPedido';
 import { PedidoType } from './@types/PedidoType';
 import { ProdutoEstoqueType } from './@types/ProdutoEstoqueType';
 
@@ -34,7 +37,7 @@ export const pedidoList: PedidoType[] = [
     formaPagamento: 'Cartão de Crédito',
     combosAcai: [comboAcaiList[0]],
     extras: ['Mel', 'Granola'],
-    avaliacoes: [],
+    avaliacoes: [''],
   },
   {
     id: '2',
@@ -43,7 +46,7 @@ export const pedidoList: PedidoType[] = [
     formaPagamento: 'Pix',
     combosAcai: [comboAcaiList[2]],
     extras: ['Paçoca'],
-    avaliacoes: [],
+    avaliacoes: [''],
   },
 ];
 
@@ -75,5 +78,155 @@ export const produtosEstoqueList: ProdutoEstoqueType[] = [
     tamanho: '380g',
     quantidade: 32,
     validade: new Date(2024, 12, 25),
+  },
+];
+
+export const clientesList: ClienteType[] = [
+  {
+    cpf: '000.000.000-00',
+    nome: 'Diego Silva',
+    telefone: '4499999-9999',
+    cidade: 'Paranavaí',
+    endereco: 'Rua das Graças, 1234',
+  },
+];
+
+export const itemPedidoList: ItemPedidoType[] = [
+  {
+    id: '1',
+    quantidade: 2,
+    descricao: 'Combo Família - Açaí com Granola, Leite Condensado e Paçoca',
+    valor: 90.0, // 2 x 45.0
+  },
+  {
+    id: '2',
+    quantidade: 1,
+    descricao: 'Combo Individual - Açaí com Banana e Mel',
+    valor: 20.0,
+  },
+  {
+    id: '3',
+    quantidade: 3,
+    descricao: 'Combo Duplo - Açaí com Morango e Castanha',
+    valor: 90.0, // 3 x 30.0
+  },
+  {
+    id: '4',
+    quantidade: 1,
+    descricao: 'Combo Tropical - Açaí com Kiwi, Abacaxi e Coco ralado',
+    valor: 35.0,
+  },
+  {
+    id: '5',
+    quantidade: 4,
+    descricao: 'Combo Fitness - Açaí com Aveia, Chia e Mel',
+    valor: 112.0, // 4 x 28.0
+  },
+];
+
+export const entregaList: EntregaType[] = [
+  {
+    id: '1',
+    cpfEntregador: '123.456.789-00',
+    combosAcai: [
+      {
+        id: '1',
+        nome: 'Combo Família',
+        preco: 45.0,
+        tamanhoMl: 1500,
+        adicionais: ['Granola', 'Leite condensado', 'Paçoca'],
+      },
+    ],
+    endereco: 'Rua das Mangueiras, 321, Jardim Botânico, Rio de Janeiro, RJ',
+    status: 'Em preparo',
+  },
+  {
+    id: '2',
+    cpfEntregador: '987.654.321-11',
+    combosAcai: [
+      {
+        id: '3',
+        nome: 'Combo Individual',
+        preco: 20.0,
+        tamanhoMl: 500,
+        adicionais: ['Banana', 'Mel'],
+      },
+    ],
+    endereco: 'Avenida Atlântica, 456, Copacabana, Rio de Janeiro, RJ',
+    status: 'Saindo para entrega',
+  },
+  {
+    id: '3',
+    cpfEntregador: '111.222.333-44',
+    combosAcai: [
+      {
+        id: '2',
+        nome: 'Combo Duplo',
+        preco: 30.0,
+        tamanhoMl: 1000,
+        adicionais: ['Morango', 'Castanha'],
+      },
+      {
+        id: '3',
+        nome: 'Combo Individual',
+        preco: 20.0,
+        tamanhoMl: 500,
+        adicionais: ['Granola', 'Leite condensado'],
+      },
+    ],
+    endereco: 'Rua dos Artistas, 789, Vila Madalena, São Paulo, SP',
+    status: 'entregue',
+  },
+  {
+    id: '4',
+    cpfEntregador: '555.666.777-88',
+    combosAcai: [
+      {
+        id: '1',
+        nome: 'Combo Família',
+        preco: 45.0,
+        tamanhoMl: 1500,
+        adicionais: ['Granola', 'Morango', 'Mel'],
+      },
+      {
+        id: '2',
+        nome: 'Combo Duplo',
+        preco: 30.0,
+        tamanhoMl: 1000,
+        adicionais: ['Paçoca', 'Castanha'],
+      },
+    ],
+    endereco: 'Avenida Brasil, 1234, Centro, Curitiba, PR',
+    status: 'Saindo para entrega',
+  },
+  {
+    id: '5',
+    cpfEntregador: '777.888.999-00',
+    combosAcai: [
+      {
+        id: '4',
+        nome: 'Combo Tropical',
+        preco: 35.0,
+        tamanhoMl: 1200,
+        adicionais: ['Kiwi', 'Abacaxi', 'Coco ralado'],
+      },
+    ],
+    endereco: 'Rua das Palmeiras, 567, Leblon, Rio de Janeiro, RJ',
+    status: 'entregue',
+  },
+  {
+    id: '6',
+    cpfEntregador: '999.888.777-11',
+    combosAcai: [
+      {
+        id: '5',
+        nome: 'Combo Fitness',
+        preco: 28.0,
+        tamanhoMl: 800,
+        adicionais: ['Aveia', 'Chia', 'Mel'],
+      },
+    ],
+    endereco: 'Avenida Paulista, 123, Bela Vista, São Paulo, SP',
+    status: 'Em preparo',
   },
 ];

@@ -57,6 +57,14 @@ export class ComboAcaiDao {
     };
   }
 
+  retrieveAll(): ReturnDataType<ComboAcaiType[]> {
+    return {
+      ok: true,
+      error: null,
+      data: comboAcaiList,
+    };
+  }
+
   delete(id: string): ReturnComboAcaiType {
     const produtoIndex = comboAcaiList.findIndex((item) => (item.id = id));
     if (produtoIndex !== -1) {
