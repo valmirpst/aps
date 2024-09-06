@@ -9,6 +9,7 @@ class estoqueManager {
   comboAcaiDao: ComboAcaiDao;
   produtoEstoque: ProdutoEstoqueDao;
 
+  produtoEstoqueDao: ProdutoEstoqueDao;
   constructor() {
     this.comboAcaiDao = new ComboAcaiDao();
     this.produtoEstoque = new ProdutoEstoqueDao();
@@ -47,7 +48,11 @@ class estoqueManager {
     return combosAcai;
   }
 
-  buscarItens(categoria: string) {}
+  // buscarCategorias() {}
+
+  buscarItens() {
+    const produtos = this.produtoEstoqueDao.retrieveAll();
+  }
 
   buscarAcaiPorId(id: string) {
     const comboAcai = this.comboAcaiDao.retrieve(id);
