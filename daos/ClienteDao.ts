@@ -1,5 +1,4 @@
 import { ClienteType } from '../@types/ClienteType';
-import { ComboAcaiType } from '../@types/ComboAcaiType';
 import { ReturnDataType } from '../@types/GlobalType';
 import { clientesList } from '../mock';
 

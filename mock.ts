@@ -1,5 +1,6 @@
 import { ClienteType } from './@types/ClienteType';
 import { ComboAcaiType } from './@types/ComboAcaiType';
+import { ItemPedidoType } from './@types/ItemPedido';
 import { PedidoType } from './@types/PedidoType';
 import { ProdutoEstoqueType } from './@types/ProdutoEstoqueType';
 
@@ -86,5 +87,33 @@ export const clientesList: ClienteType[] = [
     telefone: '4499999-9999',
     cidade: 'Paranavaí',
     endereco: 'Rua das Graças, 1234',
+  },
+];
+
+export const itemPedidoList: ItemPedidoType[] = [
+  {
+    quantidade: 2,
+    descricao: 'Combo Família - Açaí com Granola, Leite Condensado e Paçoca',
+    valor: 90.0, // 2 x 45.0
+  },
+  {
+    quantidade: 1,
+    descricao: 'Combo Individual - Açaí com Banana e Mel',
+    valor: 20.0,
+  },
+  {
+    quantidade: 3,
+    descricao: 'Combo Duplo - Açaí com Morango e Castanha',
+    valor: 90.0, // 3 x 30.0
+  },
+  {
+    quantidade: 1,
+    descricao: 'Combo Tropical - Açaí com Kiwi, Abacaxi e Coco ralado',
+    valor: 35.0,
+  },
+  {
+    quantidade: 4,
+    descricao: 'Combo Fitness - Açaí com Aveia, Chia e Mel',
+    valor: 112.0, // 4 x 28.0
   },
 ];
