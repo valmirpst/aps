@@ -1,5 +1,6 @@
 import { ClienteType } from '../@types/ClienteType';
 import { ClienteDao, ReturnClienteType } from '../daos/ClienteDao';
+import { ClienteSchema } from '../dvos/ClienteDvo';
 
 export class ClienteManager {
   clienteDao: ClienteDao;
@@ -9,6 +10,16 @@ export class ClienteManager {
   }
 
   cadastrarCliente(cliente: ClienteType): ReturnClienteType {
+    const validation = ClienteSchema.safeParse(cliente);
+
+    if (!validation.success) {
+      return {
+        ok: false,
+        error: validation.error.toString(),
+        data: null,
+      };
+    }
+
     return this.clienteDao.create(cliente);
   }
 
@@ -16,6 +27,16 @@ export class ClienteManager {
     clienteCpf: string,
     cliente: ClienteType
   ): ReturnClienteType {
+    const validation = ClienteSchema.safeParse(cliente);
+
+    if (!validation.success) {
+      return {
+        ok: false,
+        error: validation.error.toString(),
+        data: null,
+      };
+    }
+
     const clienteAtualizar = this.clienteDao.retrieve(clienteCpf);
 
     if (clienteAtualizar.data) {

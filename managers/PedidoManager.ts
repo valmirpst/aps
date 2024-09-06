@@ -1,5 +1,6 @@
 import { PedidoType } from '../@types/PedidoType';
 import { PedidoDao, ReturnPedidoType } from '../daos/PedidoDao';
+import { PedidoSchema } from '../dvos/PedidoDvo';
 
 export class PedidoManager {
   pedidoDao: PedidoDao;
@@ -9,6 +10,16 @@ export class PedidoManager {
   }
 
   confirmarPedido(pedido: PedidoType): ReturnPedidoType {
+    const validation = PedidoSchema.safeParse(pedido);
+
+    if (!validation.success) {
+      return {
+        ok: false,
+        error: validation.error.toString(),
+        data: null,
+      };
+    }
+
     return this.pedidoDao.create(pedido);
   }
 

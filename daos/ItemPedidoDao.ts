@@ -1,10 +1,21 @@
 import { ReturnDataType } from '../@types/GlobalType';
 import { ItemPedidoType } from '../@types/ItemPedido';
+import { ItemPedidoSchema } from '../dvos/ItemPedidoDvo';
 import { itemPedidoList } from '../mock';
 
 export type ReturnItemPedidoType = ReturnDataType<ItemPedidoType>;
 export class PedidoDao {
   create(itemPedido: ItemPedidoType): ReturnItemPedidoType {
+    const validation = ItemPedidoSchema.safeParse(itemPedido);
+
+    if (!validation.success) {
+      return {
+        ok: false,
+        error: validation.error.toString(),
+        data: null,
+      };
+    }
+
     itemPedidoList.push(...itemPedidoList);
     return {
       ok: true,

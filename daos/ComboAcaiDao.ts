@@ -1,21 +1,10 @@
 import { ComboAcaiType } from '../@types/ComboAcaiType';
 import { ReturnDataType } from '../@types/GlobalType';
-import { ComboAcaiSchema } from '../dvos/ComboAcaiDvo';
 import { comboAcaiList } from '../mock';
 
 type ReturnComboAcaiType = ReturnDataType<ComboAcaiType>;
 export class ComboAcaiDao {
   create(comboAcai: ComboAcaiType): ReturnComboAcaiType {
-    const validation = ComboAcaiSchema.safeParse(comboAcai);
-
-    if (!validation.success) {
-      return {
-        ok: false,
-        error: validation.error.toString(),
-        data: null,
-      };
-    }
-
     comboAcaiList.push(...comboAcaiList);
     return {
       ok: true,

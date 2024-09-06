@@ -3,9 +3,9 @@ import { ReturnDataType } from '../@types/GlobalType';
 import { clientesList } from '../mock';
 
 export type ReturnClienteType = ReturnDataType<ClienteType>;
+
 export class ClienteDao {
   create(cliente: ClienteType): ReturnClienteType {
-    // Fazer validação se o cliente é válido
     clientesList.push({ ...cliente });
     return {
       ok: true,
