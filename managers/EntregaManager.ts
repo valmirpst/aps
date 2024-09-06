@@ -1,4 +1,6 @@
+import { EntregaType } from '../@types/EntregaType';
 import { EntregaDao } from '../daos/EntregaDao';
+import { EntregaSchema } from '../dvos/EntregaDvo';
 
 class EntregaManager {
   entregaDao: EntregaDao;
@@ -7,14 +9,18 @@ class EntregaManager {
     this.entregaDao = new EntregaDao();
   }
 
-  iniciarEntrega(entregaId: string) {
-    const entrega = this.entregaDao.retrieve(entregaId);
-    if (entrega.data) {
-      this.entregaDao.update(entregaId, {
-        ...entrega.data,
-        status: 'Em preparo',
-      });
+  iniciarEntrega(entrega: EntregaType) {
+    const validation = EntregaSchema.safeParse(entrega);
+
+    if (!validation.success) {
+      return {
+        ok: false,
+        error: validation.error.toString(),
+        data: null,
+      };
     }
+
+    return this.entregaDao.create(entrega);
   }
 
   finalizarEntrega(pedidoId: string) {

@@ -3,6 +3,7 @@ import { ReturnDataType } from '../@types/GlobalType';
 import { entregaList } from '../mock';
 
 export type ReturnEntregaType = ReturnDataType<EntregaType>;
+
 export class EntregaDao {
   create(entrega: EntregaType): ReturnEntregaType {
     entregaList.push(...entregaList);

@@ -1,6 +1,6 @@
 import { PedidoType } from '../@types/PedidoType';
 
-class Pedido {
+export class Pedido {
   dataEmissao: PedidoType['dataEmissao'];
   endereco: PedidoType['endereco'];
   formaPagamento: PedidoType['formaPagamento'];
