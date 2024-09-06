@@ -51,6 +51,14 @@ export class ProdutoEstoqueDao {
     };
   }
 
+  retrieveAll(): ReturnDataType<ProdutoEstoqueType[]> {
+    return {
+      ok: true,
+      error: null,
+      data: produtosEstoqueList,
+    };
+  }
+
   delete(id: string): ReturnProdutoEstoqueType {
     const produtoIndex = produtosEstoqueList.findIndex(
       (item) => (item.id = id)

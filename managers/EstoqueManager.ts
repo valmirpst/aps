@@ -1,10 +1,12 @@
 import { ComboAcaiDao } from '../daos/ComboAcaiDao';
+import { ProdutoEstoqueDao } from '../daos/ProdutoEstoqueDao';
 
 class estoqueManager {
   comboAcaiDao: ComboAcaiDao;
-
+  produtoEstoqueDao: ProdutoEstoqueDao;
   constructor() {
     this.comboAcaiDao = new ComboAcaiDao();
+    this.produtoEstoqueDao = new ProdutoEstoqueDao();
   }
 
   consultarCardapio() {
@@ -14,7 +16,10 @@ class estoqueManager {
 
   // buscarCategorias() {}
 
-  buscarItens(categoria: string) {}
+  buscarItens() {
+    const produtos = this.produtoEstoqueDao.retrieveAll();
+    
+  }
 
   buscarAcaiPorId(id: string) {
     const comboAcai = this.comboAcaiDao.retrieve(id);
