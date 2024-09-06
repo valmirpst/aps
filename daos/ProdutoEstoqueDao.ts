@@ -1,11 +1,21 @@
 import { ReturnDataType } from '../@types/GlobalType';
 import { ProdutoEstoqueType } from '../@types/ProdutoEstoqueType';
+import { ProdutoEstoqueSchema } from '../dvos/ProdutoEstoqueDvo';
 import { produtosEstoqueList } from '../mock';
 
 type ReturnProdutoEstoqueType = ReturnDataType<ProdutoEstoqueType>;
 export class ProdutoEstoqueDao {
   create(produto: ProdutoEstoqueType): ReturnProdutoEstoqueType {
-    // Fazer validação se o produto é válido
+    const validation = ProdutoEstoqueSchema.safeParse(produto);
+
+    if (!validation.success) {
+      return {
+        ok: false,
+        error: validation.error.toString(),
+        data: null,
+      };
+    }
+
     produtosEstoqueList.push(...produtosEstoqueList);
     return {
       ok: true,
