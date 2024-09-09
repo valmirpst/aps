@@ -6,6 +6,7 @@ import { PedidoType } from './@types/PedidoType';
 import { ProdutoEstoqueType } from './@types/AcaiEstoqueType';
 import { AvaliacaoType } from './@types/AvaliacaoType';
 import { FuncionarioType } from './@types/FuncionarioType';
+import { EnderecoType } from './@types/EnderecoType';
 
 export const comboAcaiList: ComboAcaiType[] = [
   {
@@ -276,5 +277,29 @@ export const avaliacaoList: AvaliacaoType[] = [
     estrelas: 3,
     comentario:
       'O açaí estava bom, mas chegou um pouco derretido. Precisa melhorar a embalagem.',
+  },
+];
+
+export const enderecoList: EnderecoType[] = [
+  {
+    id: '1',
+    cidade: 'Rio de Janeiro',
+    bairro: 'Copacabana',
+    rua: 'Avenida Atlântica',
+    numero: '456',
+  },
+  {
+    id: '2',
+    cidade: 'São Paulo',
+    bairro: 'Vila Madalena',
+    rua: 'Rua dos Artistas',
+    numero: '789',
+  },
+  {
+    id: '3',
+    cidade: 'Curitiba',
+    bairro: 'Centro',
+    rua: 'Avenida Brasil',
+    numero: '1234',
   },
 ];
