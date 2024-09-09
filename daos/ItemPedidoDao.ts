@@ -4,7 +4,7 @@ import { ItemPedidoSchema } from '../dvos/ItemPedidoDvo';
 import { itemPedidoList } from '../mock';
 
 export type ReturnItemPedidoType = ReturnDataType<ItemPedidoType>;
-export class PedidoDao {
+export class ItemPedidoDao {
   create(itemPedido: ItemPedidoType): ReturnItemPedidoType {
     const validation = ItemPedidoSchema.safeParse(itemPedido);
 

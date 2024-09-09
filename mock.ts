@@ -1,12 +1,164 @@
+import { AcaiEstoqueType } from './@types/AcaiEstoqueType';
+import { AdicionaisEstoqueType } from './@types/AdicionaisEstoqueType';
+import { AvaliacaoType } from './@types/AvaliacaoType';
 import { ClienteType } from './@types/ClienteType';
 import { ComboAcaiType } from './@types/ComboAcaiType';
-import { EntregaType } from './@types/EntregaType';
+import { EnderecoType } from './@types/EnderecoType';
+import { FuncionarioType } from './@types/FuncionarioType';
 import { ItemPedidoType } from './@types/ItemPedido';
 import { PedidoType } from './@types/PedidoType';
-import { ProdutoEstoqueType } from './@types/AcaiEstoqueType';
-import { AvaliacaoType } from './@types/AvaliacaoType';
-import { FuncionarioType } from './@types/FuncionarioType';
-import { EnderecoType } from './@types/EnderecoType';
+
+export const acaiEstoqueList: AcaiEstoqueType[] = [
+  {
+    id: '1',
+    nome: 'Açaí Tradicional',
+    tamanho: '1L',
+    sabor: 'Açaí',
+    validade: new Date(2024, 11, 1), // 1 de Dezembro de 2024
+    quantidade: 20,
+  },
+  {
+    id: '2',
+    nome: 'Açaí com Banana',
+    tamanho: '500ml',
+    sabor: 'Açaí e Banana',
+    validade: new Date(2024, 9, 15), // 15 de Outubro de 2024
+    quantidade: 15,
+  },
+  {
+    id: '3',
+    nome: 'Açaí com Morango',
+    tamanho: '750ml',
+    sabor: 'Açaí e Morango',
+    validade: new Date(2024, 8, 25), // 25 de Setembro de 2024
+    quantidade: 30,
+  },
+];
+
+export const adicionaisEstoqueList: AdicionaisEstoqueType[] = [
+  {
+    id: '1',
+    nome: 'Granola',
+    descricao: 'Granola crocante com mel',
+    quantidade: 25,
+    validade: new Date(2024, 11, 1), // 1 de Dezembro de 2024
+  },
+  {
+    id: '2',
+    nome: 'Paçoca',
+    descricao: 'Paçoca triturada para acompanhamento',
+    quantidade: 40,
+    validade: new Date(2024, 9, 15), // 15 de Outubro de 2024
+  },
+  {
+    id: '3',
+    nome: 'Leite Condensado',
+    descricao: 'Leite condensado em sachê',
+    quantidade: 100,
+    validade: new Date(2025, 0, 30), // 30 de Janeiro de 2025
+  },
+  {
+    id: '4',
+    nome: 'Coco Ralado',
+    descricao: 'Coco ralado fresco',
+    quantidade: 35,
+    validade: new Date(2024, 10, 20), // 20 de Novembro de 2024
+  },
+  {
+    id: '5',
+    nome: 'Mel',
+    descricao: 'Mel natural',
+    quantidade: 50,
+    validade: new Date(2024, 7, 10), // 10 de Agosto de 2024
+  },
+];
+
+export const avaliacaoList: AvaliacaoType[] = [
+  {
+    id: '1',
+    estrelas: 5,
+    comentario:
+      'O açaí estava delicioso, e a entrega foi super rápida. Adorei!',
+  },
+  {
+    id: '2',
+    estrelas: 4,
+    comentario: 'Muito bom! Só achei que poderia ter um pouco mais de granola.',
+  },
+  {
+    id: '3',
+    estrelas: 3,
+    comentario:
+      'O açaí estava bom, mas chegou um pouco derretido. Precisa melhorar a embalagem.',
+  },
+  {
+    id: '4',
+    estrelas: 5,
+    comentario: 'Melhor açaí que já comi, tudo perfeito!',
+  },
+];
+
+export const enderecoList: EnderecoType[] = [
+  {
+    id: '1',
+    cidade: 'Rio de Janeiro',
+    bairro: 'Copacabana',
+    rua: 'Avenida Atlântica',
+    numero: '456',
+  },
+  {
+    id: '2',
+    cidade: 'São Paulo',
+    bairro: 'Vila Madalena',
+    rua: 'Rua dos Artistas',
+    numero: '789',
+  },
+  {
+    id: '3',
+    cidade: 'Curitiba',
+    bairro: 'Centro',
+    rua: 'Avenida Brasil',
+    numero: '1234',
+  },
+  {
+    id: '4',
+    cidade: 'Belo Horizonte',
+    bairro: 'Savassi',
+    rua: 'Rua Pernambuco',
+    numero: '321',
+  },
+];
+
+export const clienteList: ClienteType[] = [
+  {
+    cpf: '123.456.789-00',
+    nome: 'Ana Souza',
+    telefone: '(11) 91234-5678',
+    cidade: 'Rio de Janeiro',
+    endereco: '1',
+  },
+  {
+    cpf: '987.654.321-11',
+    nome: 'Carlos Pereira',
+    telefone: '(21) 99876-5432',
+    cidade: 'São Paulo',
+    endereco: '2',
+  },
+  {
+    cpf: '111.222.333-44',
+    nome: 'Mariana Lima',
+    telefone: '(31) 98765-4321',
+    cidade: 'Curitiba',
+    endereco: '3',
+  },
+  {
+    cpf: '555.666.777-88',
+    nome: 'João Silva',
+    telefone: '(41) 91234-4321',
+    cidade: 'Belo Horizonte',
+    endereco: '4',
+  },
+];
 
 export const comboAcaiList: ComboAcaiType[] = [
   {
@@ -14,225 +166,43 @@ export const comboAcaiList: ComboAcaiType[] = [
     nome: 'Combo Família',
     preco: 45.0,
     tamanhoMl: 1500,
-    adicionais: ['Granola', 'Leite condensado', 'Paçoca'],
+    adicionais: ['1', '2', '3'],
+    acaiId: '1',
   },
   {
     id: '2',
     nome: 'Combo Duplo',
     preco: 30.0,
     tamanhoMl: 1000,
-    adicionais: ['Morango', 'Castanha'],
+    adicionais: ['1', '4'],
+    acaiId: '2',
   },
   {
     id: '3',
     nome: 'Combo Individual',
     preco: 20.0,
     tamanhoMl: 500,
-    adicionais: ['Banana', 'Mel'],
-  },
-];
-
-export const pedidoList: PedidoType[] = [
-  {
-    id: '1',
-    dataEmissao: new Date(2024, 7, 29), // 29 de Agosto de 2024
-    endereco: 'Rua dos Açaizeiros, 123, Centro, São Paulo, SP',
-    formaPagamento: 'Cartão de Crédito',
-    combosAcai: [comboAcaiList[0]],
-    extras: ['Mel', 'Granola'],
-    avaliacoes: [''],
-  },
-  {
-    id: '2',
-    dataEmissao: new Date(2024, 7, 28), // 28 de Agosto de 2024
-    endereco: 'Avenida Paulista, 987, Bela Vista, São Paulo, SP',
-    formaPagamento: 'Pix',
-    combosAcai: [comboAcaiList[2]],
-    extras: ['Paçoca'],
-    avaliacoes: [''],
-  },
-];
-
-export const produtosEstoqueList: ProdutoEstoqueType[] = [
-  {
-    id: '1',
-    nome: 'Açaí Original',
-    tamanho: '20l',
-    quantidade: 50,
-    validade: new Date(2024, 10, 5),
-  },
-  {
-    id: '2',
-    nome: 'Granola',
-    tamanho: '1kg',
-    quantidade: 30,
-    validade: new Date(2024, 8, 20),
-  },
-  {
-    id: '3',
-    nome: 'Leite Condensado',
-    tamanho: '395g',
-    quantidade: 20,
-    validade: new Date(2024, 11, 15),
+    adicionais: ['2', '5'],
+    acaiId: '3',
   },
   {
     id: '4',
-    nome: 'Leite em pó',
-    tamanho: '380g',
-    quantidade: 32,
-    validade: new Date(2024, 12, 25),
-  },
-];
-
-export const clientesList: ClienteType[] = [
-  {
-    cpf: '000.000.000-00',
-    nome: 'Diego Silva',
-    telefone: '4499999-9999',
-    cidade: 'Paranavaí',
-    endereco: 'Rua das Graças, 1234',
-  },
-];
-
-export const itemPedidoList: ItemPedidoType[] = [
-  {
-    id: '1',
-    quantidade: 2,
-    descricao: 'Combo Família - Açaí com Granola, Leite Condensado e Paçoca',
-    valor: 90.0, // 2 x 45.0
-  },
-  {
-    id: '2',
-    quantidade: 1,
-    descricao: 'Combo Individual - Açaí com Banana e Mel',
-    valor: 20.0,
-  },
-  {
-    id: '3',
-    quantidade: 3,
-    descricao: 'Combo Duplo - Açaí com Morango e Castanha',
-    valor: 90.0, // 3 x 30.0
-  },
-  {
-    id: '4',
-    quantidade: 1,
-    descricao: 'Combo Tropical - Açaí com Kiwi, Abacaxi e Coco ralado',
-    valor: 35.0,
+    nome: 'Combo Tropical',
+    preco: 35.0,
+    tamanhoMl: 1200,
+    adicionais: ['4', '5'],
+    acaiId: '1',
   },
   {
     id: '5',
-    quantidade: 4,
-    descricao: 'Combo Fitness - Açaí com Aveia, Chia e Mel',
-    valor: 112.0, // 4 x 28.0
+    nome: 'Combo Fitness',
+    preco: 28.0,
+    tamanhoMl: 800,
+    adicionais: ['1', '5'],
+    acaiId: '3',
   },
 ];
 
-export const entregaList: EntregaType[] = [
-  {
-    id: '1',
-    cpfEntregador: '123.456.789-00',
-    combosAcai: [
-      {
-        id: '1',
-        nome: 'Combo Família',
-        preco: 45.0,
-        tamanhoMl: 1500,
-        adicionais: ['Granola', 'Leite condensado', 'Paçoca'],
-      },
-    ],
-    endereco: 'Rua das Mangueiras, 321, Jardim Botânico, Rio de Janeiro, RJ',
-    status: 'Em preparo',
-  },
-  {
-    id: '2',
-    cpfEntregador: '987.654.321-11',
-    combosAcai: [
-      {
-        id: '3',
-        nome: 'Combo Individual',
-        preco: 20.0,
-        tamanhoMl: 500,
-        adicionais: ['Banana', 'Mel'],
-      },
-    ],
-    endereco: 'Avenida Atlântica, 456, Copacabana, Rio de Janeiro, RJ',
-    status: 'Saindo para entrega',
-  },
-  {
-    id: '3',
-    cpfEntregador: '111.222.333-44',
-    combosAcai: [
-      {
-        id: '2',
-        nome: 'Combo Duplo',
-        preco: 30.0,
-        tamanhoMl: 1000,
-        adicionais: ['Morango', 'Castanha'],
-      },
-      {
-        id: '3',
-        nome: 'Combo Individual',
-        preco: 20.0,
-        tamanhoMl: 500,
-        adicionais: ['Granola', 'Leite condensado'],
-      },
-    ],
-    endereco: 'Rua dos Artistas, 789, Vila Madalena, São Paulo, SP',
-    status: 'entregue',
-  },
-  {
-    id: '4',
-    cpfEntregador: '555.666.777-88',
-    combosAcai: [
-      {
-        id: '1',
-        nome: 'Combo Família',
-        preco: 45.0,
-        tamanhoMl: 1500,
-        adicionais: ['Granola', 'Morango', 'Mel'],
-      },
-      {
-        id: '2',
-        nome: 'Combo Duplo',
-        preco: 30.0,
-        tamanhoMl: 1000,
-        adicionais: ['Paçoca', 'Castanha'],
-      },
-    ],
-    endereco: 'Avenida Brasil, 1234, Centro, Curitiba, PR',
-    status: 'Saindo para entrega',
-  },
-  {
-    id: '5',
-    cpfEntregador: '777.888.999-00',
-    combosAcai: [
-      {
-        id: '4',
-        nome: 'Combo Tropical',
-        preco: 35.0,
-        tamanhoMl: 1200,
-        adicionais: ['Kiwi', 'Abacaxi', 'Coco ralado'],
-      },
-    ],
-    endereco: 'Rua das Palmeiras, 567, Leblon, Rio de Janeiro, RJ',
-    status: 'entregue',
-  },
-  {
-    id: '6',
-    cpfEntregador: '999.888.777-11',
-    combosAcai: [
-      {
-        id: '5',
-        nome: 'Combo Fitness',
-        preco: 28.0,
-        tamanhoMl: 800,
-        adicionais: ['Aveia', 'Chia', 'Mel'],
-      },
-    ],
-    endereco: 'Avenida Paulista, 123, Bela Vista, São Paulo, SP',
-    status: 'Em preparo',
-  },
-];
 export const funcionarioList: FuncionarioType[] = [
   {
     cpf: '123.456.789-00',
@@ -260,46 +230,63 @@ export const funcionarioList: FuncionarioType[] = [
   },
 ];
 
-export const avaliacaoList: AvaliacaoType[] = [
+export const itemPedidoList: ItemPedidoType[] = [
   {
     id: '1',
-    estrelas: 5,
-    comentario:
-      'O açaí estava delicioso, e a entrega foi super rápida. Adorei!',
+    quantidade: 2,
+    comboAcaiId: '1',
   },
   {
     id: '2',
-    estrelas: 4,
-    comentario: 'Muito bom! Só achei que poderia ter um pouco mais de granola.',
+    quantidade: 1,
+    comboAcaiId: '3',
   },
   {
     id: '3',
-    estrelas: 3,
-    comentario:
-      'O açaí estava bom, mas chegou um pouco derretido. Precisa melhorar a embalagem.',
+    quantidade: 3,
+    comboAcaiId: '2',
+  },
+  {
+    id: '4',
+    quantidade: 1,
+    comboAcaiId: '4',
+  },
+  {
+    id: '5',
+    quantidade: 4,
+    comboAcaiId: '5',
   },
 ];
 
-export const enderecoList: EnderecoType[] = [
+export const pedidoList: PedidoType[] = [
   {
     id: '1',
-    cidade: 'Rio de Janeiro',
-    bairro: 'Copacabana',
-    rua: 'Avenida Atlântica',
-    numero: '456',
+    dataEmissao: new Date(2024, 7, 10), // 10 de Agosto de 2024
+    formaPagamento: 'Cartão de Crédito',
+    status: 'Em preparo',
+    cpfCliente: '123.456.789-00',
+    itensPedido: ['1', '2'],
+    avaliacoes: ['1'],
+    cpfFuncionarioResposavel: '987.654.321-11',
   },
   {
     id: '2',
-    cidade: 'São Paulo',
-    bairro: 'Vila Madalena',
-    rua: 'Rua dos Artistas',
-    numero: '789',
+    dataEmissao: new Date(2024, 7, 11), // 11 de Agosto de 2024
+    formaPagamento: 'Dinheiro',
+    status: 'A caminho',
+    cpfCliente: '987.654.321-11',
+    itensPedido: ['3'],
+    avaliacoes: ['2'],
+    cpfFuncionarioResposavel: '111.222.333-44',
   },
   {
     id: '3',
-    cidade: 'Curitiba',
-    bairro: 'Centro',
-    rua: 'Avenida Brasil',
-    numero: '1234',
+    dataEmissao: new Date(2024, 7, 12), // 12 de Agosto de 2024
+    formaPagamento: 'Pix',
+    status: 'Entregue',
+    cpfCliente: '111.222.333-44',
+    itensPedido: ['4', '5'],
+    avaliacoes: ['3', '4'],
+    cpfFuncionarioResposavel: '123.456.789-00',
   },
 ];

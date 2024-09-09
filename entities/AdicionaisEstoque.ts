@@ -1,12 +1,6 @@
-type AdicionaisEstoqueType = {
-  id: string;
-  nome: string;
-  descricao: string;
-  quantidade: number;
-  validade: Date;
-};
+import { AdicionaisEstoqueType } from '../@types/AdicionaisEstoqueType';
 
-class AdicionaisEstoque {
+export class AdicionaisEstoque {
   id: AdicionaisEstoqueType['id'];
   nome: AdicionaisEstoqueType['nome'];
   descricao: AdicionaisEstoqueType['descricao'];

@@ -4,7 +4,7 @@ import { Funcionario } from '../entities/Funcionario';
 import { funcionarioList } from '../mock';
 
 export type ReturnFuncionarioType = ReturnDataType<FuncionarioType>;
-export class PedidoDao {
+export class FuncionarioDao {
   create(funcionario: FuncionarioType): ReturnFuncionarioType {
     if (!(funcionario instanceof Funcionario)) {
       return {

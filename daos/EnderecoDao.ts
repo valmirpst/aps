@@ -4,7 +4,7 @@ import { Endereco } from '../entities/Endereco';
 import { enderecoList } from '../mock';
 
 export type ReturnEnderecoType = ReturnDataType<EnderecoType>;
-export class PedidoDao {
+export class EnderecoDao {
   create(endereco: EnderecoType): ReturnEnderecoType {
     if (!(endereco instanceof Endereco)) {
       return {

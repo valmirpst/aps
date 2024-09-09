@@ -4,7 +4,7 @@ import { Avaliacao } from '../entities/Avaliacao';
 import { avaliacaoList } from '../mock';
 
 export type ReturnAvaliacaoType = ReturnDataType<AvaliacaoType>;
-export class PedidoDao {
+export class AvaliacaoDao {
   create(avaliacao: AvaliacaoType): ReturnAvaliacaoType {
     if (!(avaliacao instanceof Avaliacao)) {
       return {

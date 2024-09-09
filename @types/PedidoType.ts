@@ -9,7 +9,7 @@ export type PedidoType = {
   formaPagamento: string;
   status: 'Pendente' | 'Em preparo' | 'A caminho' | 'Entregue';
   cpfCliente: ClienteType['cpf'];
-  itensPedido: ItemPedidoType[];
-  avaliacoes: AvaliacaoType[];
+  itensPedido: ItemPedidoType['id'][];
+  avaliacoes: AvaliacaoType['id'][];
   cpfFuncionarioResposavel: FuncionarioType['cpf'];
 };
