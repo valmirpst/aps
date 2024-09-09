@@ -230,3 +230,29 @@ export const entregaList: EntregaType[] = [
     status: 'Em preparo',
   },
 ];
+export const funcionarioList: FuncionarioType[] = [
+  {
+    cpf: '123.456.789-00',
+    nome: 'Ana Souza',
+    telefone: '(11) 91234-5678',
+    cargo: 'Atendente',
+    dataEmissao: new Date(2022, 5, 10), // 10 de Junho de 2022
+    salario: 2500.0,
+  },
+  {
+    cpf: '987.654.321-11',
+    nome: 'Carlos Pereira',
+    telefone: '(21) 99876-5432',
+    cargo: 'Gerente',
+    dataEmissao: new Date(2021, 2, 15), // 15 de Março de 2021
+    salario: 4000.0,
+  },
+  {
+    cpf: '111.222.333-44',
+    nome: 'Mariana Lima',
+    telefone: '(31) 98765-4321',
+    cargo: 'Entregador',
+    dataEmissao: new Date(2023, 8, 5), // 5 de Setembro de 2023
+    salario: 1800.0,
+  },
+];

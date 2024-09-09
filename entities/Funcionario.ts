@@ -1,6 +1,6 @@
 import { FuncionarioType } from '../@types/FuncionarioType';
 
-class Funcionario {
+export class Funcionario {
   cpf: FuncionarioType['cpf'];
   nome: FuncionarioType['nome'];
   telefone: FuncionarioType['telefone'];

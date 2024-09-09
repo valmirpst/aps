@@ -1,10 +1,10 @@
 import { ReturnDataType } from '../@types/GlobalType';
-import { ProdutoEstoqueType } from '../@types/ProdutoEstoqueType';
+import { AcaiEstoqueType } from '../@types/AcaiEstoqueType';
 import { produtosEstoqueList } from '../mock';
 
-type ReturnProdutoEstoqueType = ReturnDataType<ProdutoEstoqueType>;
+type ReturnAcaiEstoqueType = ReturnDataType<AcaiEstoqueType>;
 export class ProdutoEstoqueDao {
-  create(produto: ProdutoEstoqueType): ReturnProdutoEstoqueType {
+  create(produto: AcaiEstoqueType): ReturnAcaiEstoqueType {
     produtosEstoqueList.push(...produtosEstoqueList);
     return {
       ok: true,
@@ -13,7 +13,7 @@ export class ProdutoEstoqueDao {
     };
   }
 
-  update(id: string, produto: ProdutoEstoqueType): ReturnProdutoEstoqueType {
+  update(id: string, produto: AcaiEstoqueType): ReturnAcaiEstoqueType {
     const produtoIndex = produtosEstoqueList.findIndex(
       (item) => (item.id = id)
     );
@@ -32,7 +32,7 @@ export class ProdutoEstoqueDao {
     };
   }
 
-  retrieve(id: string): ReturnProdutoEstoqueType {
+  retrieve(id: string): ReturnAcaiEstoqueType {
     const produtoIndex = produtosEstoqueList.findIndex(
       (item) => (item.id = id)
     );
@@ -50,7 +50,7 @@ export class ProdutoEstoqueDao {
     };
   }
 
-  retrieveAll(): ReturnDataType<ProdutoEstoqueType[]> {
+  retrieveAll(): ReturnDataType<AcaiEstoqueType[]> {
     return {
       ok: true,
       error: null,
@@ -58,7 +58,7 @@ export class ProdutoEstoqueDao {
     };
   }
 
-  delete(id: string): ReturnProdutoEstoqueType {
+  delete(id: string): ReturnAcaiEstoqueType {
     const produtoIndex = produtosEstoqueList.findIndex(
       (item) => (item.id = id)
     );

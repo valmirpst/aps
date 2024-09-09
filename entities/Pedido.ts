@@ -1,6 +1,7 @@
 import { PedidoType } from '../@types/PedidoType';
 
 export class Pedido {
+  id: PedidoType['id'];
   dataEmissao: PedidoType['dataEmissao'];
   formaPagamento: PedidoType['formaPagamento'];
   status: PedidoType['status'];
@@ -9,6 +10,7 @@ export class Pedido {
   avaliacoes: PedidoType['avaliacoes'];
   cpfFuncionarioResposavel: PedidoType['cpfFuncionarioResposavel'];
   constructor(
+    id: PedidoType['id'],
     dataEmissao: PedidoType['dataEmissao'],
     formaPagamento: PedidoType['formaPagamento'],
     status: PedidoType['status'],
@@ -17,6 +19,7 @@ export class Pedido {
     avaliacoes: PedidoType['avaliacoes'],
     cpfFuncionarioResposavel: PedidoType['cpfFuncionarioResposavel']
   ) {
+    this.id = id;
     this.dataEmissao = dataEmissao;
     this.formaPagamento = formaPagamento;
     this.status = status;

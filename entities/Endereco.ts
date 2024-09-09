@@ -1,6 +1,6 @@
 import { EnderecoType } from '../@types/EnderecoType';
 
-class Endereco {
+export class Endereco {
   id: EnderecoType['id'];
   cidade: EnderecoType['cidade'];
   bairro: EnderecoType['bairro'];
