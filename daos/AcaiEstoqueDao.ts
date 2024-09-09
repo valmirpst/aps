@@ -1,11 +1,11 @@
 import { ReturnDataType } from '../@types/GlobalType';
 import { AcaiEstoqueType } from '../@types/AcaiEstoqueType';
-import { produtosEstoqueList } from '../mock';
+import { acaiEstoqueList } from '../mock';
 
 type ReturnAcaiEstoqueType = ReturnDataType<AcaiEstoqueType>;
-export class ProdutoEstoqueDao {
+export class AcaiEstoqueDao {
   create(produto: AcaiEstoqueType): ReturnAcaiEstoqueType {
-    produtosEstoqueList.push(...produtosEstoqueList);
+    acaiEstoqueList.push(...acaiEstoqueList);
     return {
       ok: true,
       error: null,
@@ -14,11 +14,9 @@ export class ProdutoEstoqueDao {
   }
 
   update(id: string, produto: AcaiEstoqueType): ReturnAcaiEstoqueType {
-    const produtoIndex = produtosEstoqueList.findIndex(
-      (item) => (item.id = id)
-    );
+    const produtoIndex = acaiEstoqueList.findIndex((item) => (item.id = id));
     if (produtoIndex !== -1) {
-      produtosEstoqueList[produtoIndex] = produto;
+      acaiEstoqueList[produtoIndex] = produto;
       return {
         ok: true,
         error: null,
@@ -33,14 +31,12 @@ export class ProdutoEstoqueDao {
   }
 
   retrieve(id: string): ReturnAcaiEstoqueType {
-    const produtoIndex = produtosEstoqueList.findIndex(
-      (item) => (item.id = id)
-    );
+    const produtoIndex = acaiEstoqueList.findIndex((item) => (item.id = id));
     if (produtoIndex !== -1) {
       return {
         ok: true,
         error: null,
-        data: produtosEstoqueList[produtoIndex],
+        data: acaiEstoqueList[produtoIndex],
       };
     }
     return {
@@ -54,16 +50,14 @@ export class ProdutoEstoqueDao {
     return {
       ok: true,
       error: null,
-      data: produtosEstoqueList,
+      data: acaiEstoqueList,
     };
   }
 
   delete(id: string): ReturnAcaiEstoqueType {
-    const produtoIndex = produtosEstoqueList.findIndex(
-      (item) => (item.id = id)
-    );
+    const produtoIndex = acaiEstoqueList.findIndex((item) => (item.id = id));
     if (produtoIndex !== -1) {
-      const produtoRemoved = produtosEstoqueList.splice(produtoIndex, 1)[0];
+      const produtoRemoved = acaiEstoqueList.splice(produtoIndex, 1)[0];
       return {
         ok: true,
         error: null,

@@ -46,6 +46,14 @@ export class PedidoDao {
     };
   }
 
+  retrieveAll(): ReturnDataType<PedidoType[]> {
+    return {
+      ok: true,
+      error: null,
+      data: pedidoList,
+    };
+  }
+
   delete(id: string): ReturnPedidoType {
     const produtoIndex = pedidoList.findIndex((item) => (item.id = id));
     if (produtoIndex !== -1) {

@@ -7,7 +7,7 @@ export type PedidoType = {
   id: string;
   dataEmissao: Date;
   formaPagamento: string;
-  status: 'Pendente' | 'Em preparo' | 'A caminho' | 'Entregue';
+  status: 'Pendente' | 'Em preparo' | 'A caminho' | 'Entregue' | 'Cancelado';
   cpfCliente: ClienteType['cpf'];
   itensPedido: ItemPedidoType['id'][];
   avaliacoes: AvaliacaoType['id'][];
