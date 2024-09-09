@@ -4,6 +4,8 @@ import { EntregaType } from './@types/EntregaType';
 import { ItemPedidoType } from './@types/ItemPedido';
 import { PedidoType } from './@types/PedidoType';
 import { ProdutoEstoqueType } from './@types/AcaiEstoqueType';
+import { AvaliacaoType } from './@types/AvaliacaoType';
+import { FuncionarioType } from './@types/FuncionarioType';
 
 export const comboAcaiList: ComboAcaiType[] = [
   {
@@ -254,5 +256,25 @@ export const funcionarioList: FuncionarioType[] = [
     cargo: 'Entregador',
     dataEmissao: new Date(2023, 8, 5), // 5 de Setembro de 2023
     salario: 1800.0,
+  },
+];
+
+export const avaliacaoList: AvaliacaoType[] = [
+  {
+    id: '1',
+    estrelas: 5,
+    comentario:
+      'O açaí estava delicioso, e a entrega foi super rápida. Adorei!',
+  },
+  {
+    id: '2',
+    estrelas: 4,
+    comentario: 'Muito bom! Só achei que poderia ter um pouco mais de granola.',
+  },
+  {
+    id: '3',
+    estrelas: 3,
+    comentario:
+      'O açaí estava bom, mas chegou um pouco derretido. Precisa melhorar a embalagem.',
   },
 ];

@@ -1,6 +1,6 @@
-import { AvaliacaoType } from "../@types/AvaliacaoType";
+import { AvaliacaoType } from '../@types/AvaliacaoType';
 
-class Avaliacao {
+export class Avaliacao {
   id: AvaliacaoType['id'];
   estrelas: AvaliacaoType['estrelas'];
   comentario: AvaliacaoType['comentario'];

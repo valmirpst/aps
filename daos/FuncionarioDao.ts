@@ -22,9 +22,9 @@ export class PedidoDao {
     };
   }
 
-  update(id: string, funcionario: FuncionarioType): ReturnFuncionarioType {
+  update(cpf: string, funcionario: FuncionarioType): ReturnFuncionarioType {
     const funcionarioIndex = funcionarioList.findIndex(
-      (item) => (item.id = id)
+      (item) => (item.cpf = cpf)
     );
     if (funcionarioIndex !== -1) {
       funcionarioList[funcionarioIndex] = funcionario;
@@ -41,9 +41,9 @@ export class PedidoDao {
     };
   }
 
-  retrieve(id: string): ReturnFuncionarioType {
+  retrieve(cpf: string): ReturnFuncionarioType {
     const funcionarioIndex = funcionarioList.findIndex(
-      (item) => (item.id = id)
+      (item) => (item.cpf = cpf)
     );
     if (funcionarioIndex !== -1) {
       return {
@@ -59,9 +59,9 @@ export class PedidoDao {
     };
   }
 
-  delete(id: string): ReturnFuncionarioType {
+  delete(cpf: string): ReturnFuncionarioType {
     const funcionarioIndex = funcionarioList.findIndex(
-      (item) => (item.id = id)
+      (item) => (item.cpf = cpf)
     );
     if (funcionarioIndex !== -1) {
       const funcionarioRemoved = funcionarioList.splice(funcionarioIndex, 1)[0];
