@@ -1,11 +1,15 @@
-import { ComboAcaiType } from './ComboAcaiType';
+import { AvaliacaoType } from './AvaliacaoType';
+import { ClienteType } from './ClienteType';
+import { FuncionarioType } from './FuncionarioType';
+import { ItemPedidoType } from './ItemPedido';
 
 export type PedidoType = {
   id: string;
   dataEmissao: Date;
-  endereco: string;
   formaPagamento: string;
-  combosAcai: ComboAcaiType[];
-  extras: string[];
-  avaliacoes: string[];
+  status: 'Pendente' | 'Em preparo' | 'A caminho' | 'Entregue';
+  cpfCliente: ClienteType['cpf'];
+  itensPedido: ItemPedidoType[];
+  avaliacoes: AvaliacaoType[];
+  cpfFuncionarioResposavel: FuncionarioType['cpf'];
 };

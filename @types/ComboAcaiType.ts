@@ -1,7 +1,10 @@
+import { AcaiEstoqueType } from './AcaiEstoqueType';
+
 export type ComboAcaiType = {
   id: string;
   nome: string;
   preco: number;
   tamanhoMl: number;
-  adicionais: string[];
+  adicionais: AdicionaisEstoqueType[];
+  acaiId: AcaiEstoqueType['id'];
 };

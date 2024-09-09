@@ -1,16 +1,16 @@
 import { ItemPedidoType } from '../@types/ItemPedido';
 
 export class ItemPedido {
+  id: ItemPedidoType['id'];
   quantidade: ItemPedidoType['quantidade'];
-  descricao: ItemPedidoType['descricao'];
-  valor: ItemPedidoType['valor'];
+  comboAcaiId: ItemPedidoType['comboAcaiId'];
   constructor(
+    id: ItemPedidoType['id'],
     quantidade: ItemPedidoType['quantidade'],
-    descricao: ItemPedidoType['descricao'],
-    valor: ItemPedidoType['valor']
+    comboAcaiId: ItemPedidoType['comboAcaiId']
   ) {
+    this.id = id;
     this.quantidade = quantidade;
-    this.descricao = descricao;
-    this.valor = valor;
+    this.comboAcaiId = comboAcaiId;
   }
 }

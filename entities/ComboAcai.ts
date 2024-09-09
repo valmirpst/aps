@@ -5,6 +5,7 @@ export class ComboAcai {
   preco: ComboAcaiType['preco'];
   tamanhoMl: ComboAcaiType['tamanhoMl'];
   adicionais: ComboAcaiType['adicionais'];
+  AcaiId: ComboAcaiType['acaiId'];
   constructor(
     nome: ComboAcaiType['nome'],
     preco: ComboAcaiType['preco'],

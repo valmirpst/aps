@@ -1,7 +1,8 @@
-export type ProdutoEstoqueType = {
+export type AcaiEstoqueType = {
   id: string;
   nome: string;
   tamanho: string;
-  quantidade: number;
+  sabor: string;
   validade: Date;
+  quantidade: number;
 };

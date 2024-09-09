@@ -3,7 +3,7 @@ import { ComboAcaiType } from './@types/ComboAcaiType';
 import { EntregaType } from './@types/EntregaType';
 import { ItemPedidoType } from './@types/ItemPedido';
 import { PedidoType } from './@types/PedidoType';
-import { ProdutoEstoqueType } from './@types/ProdutoEstoqueType';
+import { ProdutoEstoqueType } from './@types/AcaiEstoqueType';
 
 export const comboAcaiList: ComboAcaiType[] = [
   {

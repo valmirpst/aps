@@ -1,6 +1,7 @@
+import { ComboAcaiType } from './ComboAcaiType';
+
 export type ItemPedidoType = {
   id: string;
   quantidade: number;
-  descricao: string;
-  valor: number;
+  comboAcaiId: ComboAcaiType['id'];
 };
